@@ -275,13 +275,21 @@ if uploaded_file:
         total_fifo = kpi_df["FIFO"].nunique()
         reels_count = kpi_df[kpi_df["Type"] == "Reels"]["FIFO"].nunique()
         th_count = kpi_df[kpi_df["Type"] == "TH/barePCB"]["FIFO"].nunique()
+        # Picklist count matching Graph 4 logic
+        # ================= SUMMARY =================
 
         st.subheader("📊 Summary")
-        c1, c2, c3 = st.columns(3)
 
-        c1.metric("🔢 Total FIFO Count", total_fifo)
-        c2.metric("🧵 Reels Count", reels_count)
-        c3.metric("📦 TH / BarePCB Count", th_count)
+        # Picklist count matching Graph 4
+        picklist_df = filtered[filtered["Parent_Line"] != "OTHERS"]
+        total_picklist = picklist_df["Pick List"].nunique()
+
+        c1, c2, c3, c4 = st.columns(4)
+
+        c1.metric("📋 Total Picklist Count", total_picklist)
+        c2.metric("🔢 Total FIFO Count", total_fifo)
+        c3.metric("🧵 Reels Count", reels_count)
+        c4.metric("📦 TH / BarePCB Count", th_count)
         
         # ================= SORT =================
         filtered_sorted = filtered.sort_values(
@@ -331,9 +339,9 @@ if uploaded_file:
                     "Shift": shift_order
                 },
                 color_discrete_map={
-                    "A Shift":"violet",
-                    "B Shift":"yellow",
-                    "C Shift":"green"
+                    "A Shift": "#6C8AE4",
+                "B Shift": "#F4A261",
+                "C Shift": "#2A9D8F"
                 }
             )
 
@@ -407,9 +415,9 @@ if uploaded_file:
                         "Shift": ["A Shift","B Shift","C Shift"]
                     },
                     color_discrete_map={
-                        "A Shift":"violet",
-                        "B Shift":"yellow",
-                        "C Shift":"green"
+                        "A Shift": "#6C8AE4",
+                "B Shift": "#F4A261",
+                "C Shift": "#2A9D8F"
                     }
                 )
 
@@ -427,9 +435,9 @@ if uploaded_file:
         row2_col1, row2_col2 = st.columns(2)
 
         color_map = {
-            "A Shift": "#8A2BE2",   # violet
-            "B Shift": "#FFC107",   # yellow
-            "C Shift": "#4CAF50"    # green
+            "A Shift": "#005F73",
+    "B Shift": "#EE9B00",
+    "C Shift": "#0A9396"
         }
 
         shift_order = ["A Shift", "B Shift", "C Shift"]
