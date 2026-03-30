@@ -36,6 +36,7 @@ Multiple sheets in the Excel file are supported and will be automatically merged
 
 Authors:
 [Niranjana Sivaram](https://github.com/Niranjanasivaram)
-[Mohammed Sulaiman N]()
+[Mohammed Sulaiman N](https://github.com/sulai11)
+[Nikhitha M](https://github.com/Nikhitha0620)
 [Rajalakshmi S](https://github.com/Rajalakshmi2702)
-[Nikhitha M]()
+
