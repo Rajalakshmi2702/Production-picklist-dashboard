@@ -614,14 +614,14 @@ if uploaded_file:
 
             for i, col in enumerate(download_df.columns):
                 column_data = download_df[col].astype(str)
-            
+
                 if column_data.empty:
                     max_len = len(col)
                 else:
                     max_len = column_data.str.len().max()
 
-    column_len = max(max_len, len(col)) + 2
-    worksheet.set_column(i, i, column_len)
+                column_len = max(max_len, len(col)) + 2
+                worksheet.set_column(i, i, column_len)
 
         st.download_button(
             "📥 Download Filtered Excel",
