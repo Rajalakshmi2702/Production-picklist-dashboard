@@ -482,7 +482,7 @@ if uploaded_file:
 
         # ================= GRAPH 4 (RIGHT GRAPH) =================
         with row2_col2:
-            st.subheader("📅 Picklist Count by Date")
+            st.subheader("📅 Picklist Count by DATE")
 
             if filtered.empty:
                 st.warning("No data available")
